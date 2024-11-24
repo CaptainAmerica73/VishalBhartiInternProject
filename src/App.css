@@ -1,0 +1,184 @@
+:root::-webkit-scrollbar {
+  width: 0;
+}
+
+.nav-burger {
+  display: none;
+}
+
+.infra-nav,
+.academics-nav {
+  display: flex;
+  flex-basis: 20%;
+}
+.infra-content,
+.academics-content {
+  flex-basis: 80%;
+}
+.nav-content {
+  display: flex;
+  height: 100%;
+  background-color: #5f0b35;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: max(2vw, 1rem);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+}
+
+.hero {
+  background: url("image1.png") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.map {
+  background: url("map.png") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.library {
+  background: url("library.webp") no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.reception {
+  background: url("reception.webp") no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.physics {
+  background: url("physics.webp") no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.chemistry {
+  background: url("chemistry.webp") no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.biology {
+  background: url("biology.webp") no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.maths {
+  background: url("maths.webp") no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.computer {
+  background: url("computer.webp") no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.classroom {
+  background: url("classroom.webp") no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+ul {
+  list-style: square;
+}
+
+@media screen and (max-width: 800px) {
+  .nav-burger input,
+  .nav-burger::after,
+  .nav-burger::before {
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 0.2rem;
+    background-color: white;
+    border-radius: 100px;
+    transition: all 0.5s ease-in-out;
+  }
+  .nav-burger {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0.7rem;
+    left: 1rem;
+    z-index: 999;
+    cursor: pointer;
+    height: 1.4rem;
+    width: 2rem;
+    transition: all 0.5s ease-in-out;
+
+    &::before {
+      position: absolute;
+      top: 1.2rem;
+    }
+
+    &::after {
+      bottom: 1.2rem;
+    }
+
+    &:has(input:checked) {
+      rotate: 360deg;
+      input {
+        background-color: transparent;
+      }
+    }
+
+    &:has(input:checked)::after {
+      bottom: 0.6rem;
+      rotate: 45deg;
+    }
+
+    &:has(input:checked)::before {
+      top: 0.6rem;
+      rotate: -45deg;
+    }
+
+    input {
+      appearance: none;
+      pointer-events: none;
+    }
+  }
+
+  .nav-burger:has(input:checked) ~ .nav-content {
+    transform: translateX(-51%);
+  }
+
+  .nav-content {
+    width: 50vw;
+    position: absolute;
+    top: 7vh;
+    transform: translateX(-150%);
+    flex-direction: column;
+    height: 93dvh;
+    justify-content: start;
+    gap: 0;
+    transition: transform 0.5s ease-in-out;
+    p:first-child {
+      border-block-start: 2px solid white;
+    }
+    p {
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+      border-block-end: 2px solid white;
+    }
+  }
+  .infra-nav,
+  .academics-nav {
+    display: none;
+  }
+  .infra-content,
+  .academics-content {
+    flex-basis: 100%;
+  }
+}
